@@ -21,6 +21,10 @@ REQUIREMENTS
 - Firebase service-account credentials for the API server only
 - Optional ClamAV installed and configured for actual malware scanning
 
+VERCEL DEPLOYMENT NOTE
+----------------------
+Deploying index.html to Vercel only publishes the browser frontend. It does NOT deploy server/index.js automatically. Deploy the Node.js API as a separate Node service (for example on a Node-compatible host), set its environment variables, and set CORS_ORIGINS to the exact HTTPS origin of your Vercel site (for example https://your-project.vercel.app). Then enter that API's base URL in the page's 'VDSP API base URL' field. The API must be reachable over HTTPS. If the API is not deployed/configured, Firebase sign-in may succeed but the Creator ID/profile cannot load.
+
 SETUP
 1. Create Realtime Database in Firebase Console and copy its exact URL.
 2. Copy .env.example to .env and set FIREBASE_DATABASE_URL.
