@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/api/vdsp?path=$1"
+      "source": "/health",
+      "destination": "/api/vdsp?path=health"
+    },
+    {
+      "source": "/v1/:path*",
+      "destination": "/api/vdsp?path=v1/:path*"
     }
   ]
 }
